@@ -1,4 +1,4 @@
-import { AppDataSource } from "../database/data-source.js";
+import { AppDataSource } from "../config/data-source.js";
 import { Usuario } from "../entities/Usuario.js";
 import { Restaurante } from "../entities/Restaurante.js";
 import { Produto } from "../entities/Produto.js";

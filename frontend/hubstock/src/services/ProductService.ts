@@ -51,7 +51,7 @@ class ProductService {
         quantity: number,
         notes?: string
     ): Promise<Produto> {
-        const { data } = await api.post(`/produtos/${productId}/estoque`, {
+        const { data } = await api.patch(`/produtos/${productId}/estoque`, {
             quantidade: quantity,
             tipo: 'ENTRADA',
             observacao: notes

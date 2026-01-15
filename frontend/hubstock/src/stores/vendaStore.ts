@@ -1,7 +1,6 @@
 import { defineStore } from 'pinia';
 import { ref } from 'vue';
 import { vendaService } from '@/services/VendaService';
-import { message } from 'ant-design-vue';
 import { mesaService } from '@/services/MesaService';
 
 export const useVendaStore = defineStore('venda', () => {
@@ -15,7 +14,7 @@ export const useVendaStore = defineStore('venda', () => {
             pedidoAtual.value.items = data.items || [];
         } catch (error) {
             pedidoAtual.value.items = [];
-            console.error("Erro ao carregar pedido:", error);
+            console.error("Mesa vazia ou erro ao carregar: " + error);
         } finally {
             isLoading.value = false;
         }
@@ -26,7 +25,7 @@ export const useVendaStore = defineStore('venda', () => {
             await vendaService.adicionarItem(mesaId, produtoId, quantidade);
             await loadPedido(mesaId);
         } catch (error: any) {
-            message.error((error.response?.data?.erro || ""));
+            console.error(error.response?.data?.erro || "Erro ao adicionar produto.");
             throw error;
         }
     }
@@ -36,7 +35,7 @@ export const useVendaStore = defineStore('venda', () => {
             await vendaService.removerItem(mesaId, produtoId, quantidade);
             await loadPedido(mesaId);
         } catch (error) {
-            message.error("Erro ao remover item");
+            console.error("Erro ao remover item");
             throw error;
         }
     }
@@ -48,7 +47,7 @@ export const useVendaStore = defineStore('venda', () => {
             pedidoAtual.value.items = [];
         } catch (error: any) {
             const msg = error.response?.data?.erro || "Erro ao finalizar";
-            message.error(msg);
+            console.error(msg);
             throw error;
         } finally {
             isLoading.value = false;

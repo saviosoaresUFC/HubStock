@@ -10,6 +10,6 @@ export const authorize = (rolePermitidas: string[]) => {
             });
         }
 
-        next();
+        return next();
     };
 };

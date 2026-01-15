@@ -1,5 +1,5 @@
 import type { Request, Response } from "express";
-import { AppDataSource } from "../database/data-source.js";
+import { AppDataSource } from "../config/data-source.js";
 import { Venda } from "../entities/Venda.js";
 import { VendaItem } from "../entities/VendaItem.js";
 

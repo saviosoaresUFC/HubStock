@@ -9,8 +9,7 @@ export const useRestaurantStore = defineStore('restaurant', () => {
     const error = ref<string | null>(null);
 
     // Carrega a lista de restaurantes
-    async function loadRestaurants(force = false) {
-        if (restaurants.value.length > 0 && !force) return;
+    async function loadRestaurants() {
 
         isLoading.value = true;
         error.value = null;

@@ -24,11 +24,11 @@
         <a-col :span="12">
           <a-form-item label="Unidade de Medida" required>
             <a-select v-model:value="formState.unidadeMedidaProduto" placeholder="Ex: UNIDADE">
-              <a-select-option value="UNIDADE">UNIDADE</a-select-option>
-              <a-select-option value="LITRO">LITRO</a-select-option>
-              <a-select-option value="QUILOGRAMA">QUILOGRAMA</a-select-option>
-              <a-select-option value="PACOTE">PACOTE</a-select-option>
-              <a-select-option value="GARRAFA">GARRAFA</a-select-option>
+              <a-select-option value="UN">UNIDADE</a-select-option>
+              <a-select-option value="LT">LITRO</a-select-option>
+              <a-select-option value="KG">QUILOGRAMA</a-select-option>
+              <a-select-option value="PCT">PACOTE</a-select-option>
+              <a-select-option value="GRF">GARRAFA</a-select-option>
             </a-select>
           </a-form-item>
         </a-col>

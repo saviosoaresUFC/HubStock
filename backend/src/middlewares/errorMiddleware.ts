@@ -1,11 +1,9 @@
-import type { Request, Response, NextFunction } from "express";
+import type { Response } from "express";
 import { ZodError } from "zod";
 
 export const errorMiddleware = (
     erro: any,
-    req: Request,
     res: Response,
-    next: NextFunction
 ) => {
     // erros do Zod
     if (erro instanceof ZodError) {

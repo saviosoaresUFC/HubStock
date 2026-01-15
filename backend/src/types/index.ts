@@ -32,13 +32,13 @@ export enum UnidadeMedida {
     GARRAFA = "GRF"
 }
 export enum CategoriaProduto {
-    ENTRADAS = "Entradas",
-    BEBIDAS = "Bebidas",
-    PRATOS_PRINCIPAIS = "Pratos Principais",
-    PIZZAS = "Pizzas",
-    SOBREMESAS = "Sobremesas",
-    SALADA = "Salada",
-    OUTROS = "Outros"
+    ENTRADAS = "ENTRADAS",
+    BEBIDAS = "BEBIDAS",
+    PRATOS_PRINCIPAIS = "PRATOS_PRINCIPAIS",
+    PIZZAS = "PIZZAS",
+    SOBREMESAS = "SOBREMESAS",
+    SALADA = "SALADA",
+    OUTROS = "OUTROS"
 }
 
 export enum TipoMovimentacaoEstoque {

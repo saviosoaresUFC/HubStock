@@ -1,5 +1,3 @@
-[![Review Assignment Due Date](https://classroom.github.com/assets/deadline-readme-button-22041afd0340ce965d47ae6ef1cefeee28c7c493a6346c4f15d667ab976d596c.svg)](https://classroom.github.com/a/iVa2Dd1Z)
-[![Open in Codespaces](https://classroom.github.com/assets/launch-codespace-2972f46106e565e64193e422d61a12cf1da4916b45550586e14ef0a7c637dd04.svg)](https://classroom.github.com/open-in-codespaces?assignment_repo_id=21200888)
 # :checkered_flag: HubStock
 
 
@@ -18,7 +16,7 @@ Dono de Restaurantes/Bares
 2. Saibam quanto de vendas estão tendo no dia/mês/ano.
 
 ## :people_holding_hands: Papéis ou tipos de usuário da aplicação
-Administrador e Garçom
+Garçom, Administrador e SuperAdministrador 
 
 ## :triangular_flag_on_post:	 Principais funcionalidades da aplicação
 As funcionalidades do HubStock serão divididas para garantir que cada tipo de usuário (Administrador e Garçom) tenha as ferramentas necessárias para cumprir seu papel, mantendo a segurança e o controle de acesso.
@@ -26,13 +24,12 @@ As funcionalidades do HubStock serão divididas para garantir que cada tipo de u
 | Funcionalidade | Acesso | Papéis de Acesso |
 | :--- | :--- | :--- |
 | **Login/Logout** | Acessível a todos os usuários. | Todos |
-| **Registro de Saída de Produto (Venda)** | Acessível a todos os usuários. | Garçom, Administrador |
-| **Visualizar Nível de Estoque** | Acessível a todos os usuários. | Garçom, Administrador |
-| **Gerenciar Produtos / Itens** | Restrita a certos tipos de usuários. | Administrador |
-| **Registro de Entrada de Mercadoria** | Restrita a certos tipos de usuários. | Administrador |
-| **Relatórios de Vendas e Lucros** | Restrita a certos tipos de usuários. | Administrador |
-| **Gerenciamento de Usuários** | Restrita a certos tipos de usuários. | Administrador |
-
+| **Registro de Saída de Produto (Venda)** | Acessível a todos os usuários. | Garçom, Administrador, SuperAdministrador |
+| **Visualizar Nível de Estoque** | Acessível a todos os usuários. | Garçom, Administrador, SuperAdministrador |
+| **Gerenciar Produtos / Itens** | Restrita a certos tipos de usuários. | Administrador, SuperAdministrador |
+| **Registro de Entrada de Mercadoria** | Restrita a certos tipos de usuários. | Administrador, SuperAdministrador |
+| **Relatórios de Vendas e Lucros** | Restrita a certos tipos de usuários. | Administrador, SuperAdministrador |
+| **Gerenciamento de Usuários** | Restrita a certos tipos de usuários. | Administrador, SuperAdministrador |
 ## :spiral_calendar: Entidades ou tabelas do sistema
 1.  **USUARIO**
 2.  **CATEGORIA** (Para agrupar produtos - ex: Bebidas, Comidas, Aluguel)

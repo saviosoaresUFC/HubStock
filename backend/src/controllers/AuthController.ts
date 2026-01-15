@@ -1,5 +1,5 @@
 import type { Request, Response } from "express";
-import { AppDataSource } from "../database/data-source.js";
+import { AppDataSource } from "../config/data-source.js";
 import { Usuario } from "../entities/Usuario.js";
 import { StatusMesa, UsuarioPapel } from "../types/index.js";
 import bcrypt from "bcryptjs";

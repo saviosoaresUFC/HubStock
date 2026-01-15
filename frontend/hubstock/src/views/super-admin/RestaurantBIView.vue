@@ -191,6 +191,7 @@ const salvarUsuario = async () => {
 
 const removerUsuario = async (usuario: any) => {
     await userStore.deleteUser(usuario.id, usuario.nome);
+    message.success("Funcionário deletado.")
 };
 
 onMounted(() => {

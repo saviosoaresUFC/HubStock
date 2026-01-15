@@ -113,9 +113,9 @@ const fecharModalEstoque = () => {
 };
 
 // Quando confirma a entrada de estoque
-const confirmarEstoque = async (dados: { productId: string; quantity: number }) => {
+const confirmarEstoque = async (dados: { productId: string; quantity: number, notes: string }) => {
   try {
-    await productStore.addStock(dados.productId, dados.quantity);
+    await productStore.addStock(dados.productId, dados.quantity, dados.notes);
     message.success('Estoque atualizado com sucesso!');
     fecharModalEstoque();
     productStore.loadProduct(); // Recarrega a lista

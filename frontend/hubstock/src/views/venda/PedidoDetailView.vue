@@ -92,6 +92,10 @@ const drawerWidth = computed(() => windowWidth.value > 600 ? 500 : '100%');
 // Lança o produto
 const addProductToMesa = async (product: any) => {
     await vendaStore.adicionarItem(mesaId, product.id, 1);
+
+    const p = productStore.produtos.find(i => i.id === product.id);
+    if (p) p.estoqueAtual -= 1;
+
     message.success(`${product.nomeProduto} lançado!`);
 };
 
@@ -118,10 +122,17 @@ const updateItemQuantity = async (productId: string, newQuantity: number) => {
     if (!itemLocal) return;
 
     const diferenca = newQuantity - itemLocal.quantidade;
+
     if (diferenca > 0) {
         await vendaStore.adicionarItem(mesaId, productId, Math.abs(diferenca));
+        // baixa estoque local na store
+        const p = productStore.produtos.find(i => i.id === productId);
+        if (p) p.estoqueAtual -= Math.abs(diferenca);
     } else {
         await vendaStore.removerItem(mesaId, productId, Math.abs(diferenca));
+        // devolve estoque local na store
+        const p = productStore.produtos.find(i => i.id === productId);
+        if (p) p.estoqueAtual += Math.abs(diferenca);
     }
 };
 
@@ -129,7 +140,13 @@ const updateItemQuantity = async (productId: string, newQuantity: number) => {
 const removeItemFromMesaById = async (productId: string) => {
     const itemLocal = pedidoAtual.value.items.find(i => i.produtoId === productId);
     if (itemLocal) {
-        await vendaStore.removerItem(mesaId, productId, itemLocal.quantidade);
+        const quantidadeParaDevolver = itemLocal.quantidade;
+        await vendaStore.removerItem(mesaId, productId, quantidadeParaDevolver);
+
+        // devolve a quantidade total ao estoque local na store
+        const p = productStore.produtos.find(i => i.id === productId);
+        if (p) p.estoqueAtual += quantidadeParaDevolver;
+
         message.info('Produto removido');
     }
 };

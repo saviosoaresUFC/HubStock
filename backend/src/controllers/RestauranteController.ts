@@ -1,13 +1,11 @@
 import type { Request, Response } from "express";
-import { AppDataSource } from "../database/data-source.js";
+import { AppDataSource } from "../config/data-source.js";
 import { Restaurante } from "../entities/Restaurante.js";
-import { Mesa } from "../entities/Mesa.js";
-import { StatusMesa } from "../types/index.js";
 
 export class RestauranteController {
 
     // Lista todos os restaurantes cadastrados no sistema
-    static async listAll(req: Request, res: Response) {
+    static async listAll(_req: Request, res: Response) {
         const repo = AppDataSource.getRepository(Restaurante);
         const lista = await repo.find();
         return res.json(lista);
